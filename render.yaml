@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: iam-cloud-ia
+    runtime: static
+    buildCommand: echo "Site statique, rien a compiler"
+    staticPublishPath: ./site
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: sameorigin
