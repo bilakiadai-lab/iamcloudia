@@ -21,6 +21,8 @@ Le fichier `render.yaml` décrit le site. Deux façons de le créer :
 
 Chaque modification poussée sur la branche `main` redéploie le site automatiquement.
 
+Le dépôt contient aussi un `Dockerfile` (nginx) : si le site a été créé comme **Web Service** avec le runtime Docker, il fonctionne tel quel. Le **Static Site** reste préférable : il est gratuit sans mise en veille, alors qu'un Web Service gratuit s'endort après une période sans visite et met une minute à se réveiller.
+
 ## Domaine personnalisé (Squarespace Domains)
 
 Dans Render : Settings › Custom Domains › ajouter le domaine. Puis dans Squarespace › Domaines › DNS › enregistrements personnalisés :
