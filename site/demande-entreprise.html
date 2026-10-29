@@ -41,7 +41,7 @@ h2{font-size:20px}
 main.inner{padding-block:28px 72px;display:flex;flex-direction:column;gap:22px}
 form{display:flex;flex-direction:column;gap:22px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:16px;min-width:0}
-.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px 20px;align-items:end}
 label.f{display:flex;flex-direction:column;gap:6px;font-size:15px;font-weight:500;min-width:0}
 .req{color:var(--bad)}
 label.f input,label.f select,label.f textarea{min-height:44px;border:1px solid var(--line-strong);border-radius:8px;padding:8px 12px;background:var(--surface);color:var(--ink);font:inherit;width:100%;box-sizing:border-box}
@@ -49,7 +49,8 @@ label.f textarea{min-height:96px;resize:vertical}
 .hint{font-size:14px;color:var(--muted);margin:0}
 .tracks{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
 .track{border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px}
-.track .t-head{display:flex;flex-direction:column;gap:2px}
+.track .t-head{display:flex;flex-direction:column;gap:2px;min-height:44px}
+.track label.f{margin-top:auto}
 .track strong{font-family:var(--display)}
 .track .price{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
 .track.cloud{border-top:4px solid var(--cloud)}.track.ai{border-top:4px solid var(--ai)}.track.pack{border-top:4px solid var(--pack)}
@@ -65,7 +66,8 @@ legend{font-size:15px;font-weight:500;padding:0;margin-bottom:6px}
 .btn{min-height:48px;padding:10px 22px;border-radius:10px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);font:600 16px var(--body);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
 .btn.primary{background:var(--accent-btn);border-color:var(--accent-btn);color:var(--on-accent)}
 .btn:focus-visible,.opt:has(input:focus-visible),label.f input:focus-visible,label.f select:focus-visible,label.f textarea:focus-visible,a:focus-visible,.consent input:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
-.row{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between}
+.row{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:flex-end}
+.row .err{margin-right:auto}
 .estimate{font-variant-numeric:tabular-nums;font-size:15px;color:var(--muted)}
 .estimate b{color:var(--ink);font-size:18px}
 .err{color:var(--bad);margin:0;font-weight:500}
@@ -102,6 +104,7 @@ td.r{text-align:right}
     <h1>Formez votre équipe au Cloud et à l’IA</h1>
     <p>Décrivez votre besoin : IAM vous envoie une proposition au tarif groupe sous 48 h ouvrées. Les parcours préparent aux certifications AWS Cloud Practitioner et AI Practitioner, examen inclus.</p>
     <div class="perks"><span>À partir de 5 salariés</span><span>Tarif dégressif</span><span>Facture au nom de l’entreprise</span><span>Suivi partagé avec vos RH</span></div>
+    <p style="font-size:14px">En savoir plus sur le Groupe IAM : <a href="https://www.groupeiam.com" style="color:#FFFFFF">www.groupeiam.com</a></p>
   </div>
 </div>
 
@@ -110,20 +113,20 @@ td.r{text-align:right}
     <section class="card" aria-labelledby="h-ent">
       <h2 id="h-ent">Votre entreprise</h2>
       <div class="grid2">
-        <label class="f">Raison sociale <span class="req" aria-hidden="true">*</span><input id="ent" name="entreprise" autocomplete="organization" required></label>
-        <label class="f">Secteur d’activité<input id="secteur" name="secteur" placeholder="Banque, télécoms, administration…"></label>
-        <label class="f">Effectif total<select id="taille" name="taille"><option value="">Choisir</option><option>Moins de 50 salariés</option><option>50 à 249 salariés</option><option>250 à 999 salariés</option><option>1 000 salariés et plus</option></select></label>
-        <label class="f">Ville<input id="ville" name="ville" value="Dakar"></label>
+        <label class="f"><span>Raison sociale <span class="req" aria-hidden="true">*</span></span><input id="ent" name="entreprise" autocomplete="organization" required></label>
+        <label class="f"><span>Secteur d’activité</span><select id="secteur" name="secteur"><option value="">Choisir</option><option>Banque et microfinance</option><option>Assurance</option><option>Télécommunications</option><option>Services numériques (ESN, éditeurs, startups)</option><option>Administration et secteur public</option><option>Énergie, mines et pétrole</option><option>Industrie</option><option>Commerce et distribution</option><option>Transport et logistique</option><option>Santé</option><option>Éducation et formation</option><option>Agriculture et agroalimentaire</option><option>BTP et immobilier</option><option>ONG et organisations internationales</option><option>Médias et communication</option><option>Tourisme et hôtellerie</option><option>Autre</option></select></label>
+        <label class="f"><span>Effectif total</span><select id="taille" name="taille"><option value="">Choisir</option><option>Moins de 50 salariés</option><option>50 à 249 salariés</option><option>250 à 999 salariés</option><option>1 000 salariés et plus</option></select></label>
+        <label class="f"><span>Ville</span><input id="ville" name="ville" value="Dakar"></label>
       </div>
     </section>
 
     <section class="card" aria-labelledby="h-contact">
       <h2 id="h-contact">Votre contact</h2>
       <div class="grid2">
-        <label class="f">Nom complet <span class="req" aria-hidden="true">*</span><input id="nom" name="nom" autocomplete="name" required></label>
-        <label class="f">Fonction<input id="fonction" name="fonction" placeholder="DRH, DSI, responsable formation…" autocomplete="organization-title"></label>
-        <label class="f">E-mail professionnel <span class="req" aria-hidden="true">*</span><input id="email" name="email" type="email" autocomplete="email" required></label>
-        <label class="f">Téléphone (WhatsApp) <span class="req" aria-hidden="true">*</span><input id="tel" name="telephone" type="tel" autocomplete="tel" placeholder="+221 …" required></label>
+        <label class="f"><span>Nom complet <span class="req" aria-hidden="true">*</span></span><input id="nom" name="nom" autocomplete="name" required></label>
+        <label class="f"><span>Fonction</span><input id="fonction" name="fonction" placeholder="DRH, DSI, responsable formation…" autocomplete="organization-title"></label>
+        <label class="f"><span>E-mail professionnel <span class="req" aria-hidden="true">*</span></span><input id="email" name="email" type="email" autocomplete="email" required></label>
+        <label class="f"><span>Téléphone (WhatsApp) <span class="req" aria-hidden="true">*</span></span><input id="tel" name="telephone" type="tel" autocomplete="tel" placeholder="+221 …" required></label>
       </div>
     </section>
 
@@ -132,9 +135,9 @@ td.r{text-align:right}
       <div>
         <p class="hint" style="margin-bottom:10px">Nombre de salariés à former par parcours (5 au total au minimum).</p>
         <div class="tracks">
-          <div class="track cloud"><div class="t-head"><strong>Cloud Foundations</strong><span class="price">410 000 FCFA, examen inclus</span></div><label class="f">Salariés<input id="n-cloud" name="nb_cloud" type="number" min="0" step="1" inputmode="numeric" placeholder="0"></label></div>
-          <div class="track ai"><div class="t-head"><strong>AI Foundations</strong><span class="price">460 000 FCFA, examen inclus</span></div><label class="f">Salariés<input id="n-ai" name="nb_ai" type="number" min="0" step="1" inputmode="numeric" placeholder="0"></label></div>
-          <div class="track pack"><div class="t-head"><strong>Pack Excellence</strong><span class="price">770 000 FCFA, 2 examens inclus</span></div><label class="f">Salariés<input id="n-pack" name="nb_pack" type="number" min="0" step="1" inputmode="numeric" placeholder="0"></label></div>
+          <div class="track cloud"><div class="t-head"><strong>Cloud Foundations</strong><span class="price">410 000 FCFA, examen inclus</span></div><label class="f"><span>Salariés</span><input id="n-cloud" name="nb_cloud" type="number" min="0" step="1" inputmode="numeric" placeholder="0"></label></div>
+          <div class="track ai"><div class="t-head"><strong>AI Foundations</strong><span class="price">460 000 FCFA, examen inclus</span></div><label class="f"><span>Salariés</span><input id="n-ai" name="nb_ai" type="number" min="0" step="1" inputmode="numeric" placeholder="0"></label></div>
+          <div class="track pack"><div class="t-head"><strong>Pack Excellence</strong><span class="price">770 000 FCFA, 2 examens inclus</span></div><label class="f"><span>Salariés</span><input id="n-pack" name="nb_pack" type="number" min="0" step="1" inputmode="numeric" placeholder="0"></label></div>
         </div>
       </div>
       <p class="estimate" id="estimate" aria-live="polite">Indiquez un nombre de salariés pour voir l’estimation au tarif public.</p>
@@ -154,10 +157,10 @@ td.r{text-align:right}
         </div>
       </fieldset>
       <div class="grid2">
-        <label class="f">Période de démarrage<select id="periode" name="periode"><option>Promotion du 14 décembre 2026</option><option>Janvier à mars 2027</option><option>Avril à juin 2027</option><option>À définir ensemble</option></select></label>
-        <label class="f">Financement<select id="finance" name="financement"><option>Budget formation de l’entreprise</option><option>Fonds ou organisme de financement de la formation</option><option>Je souhaite être conseillé</option></select></label>
+        <label class="f"><span>Période de démarrage</span><select id="periode" name="periode"><option>Promotion du 14 décembre 2026</option><option>Janvier à mars 2027</option><option>Avril à juin 2027</option><option>À définir ensemble</option></select></label>
+        <label class="f"><span>Financement</span><select id="finance" name="financement"><option>Budget formation de l’entreprise</option><option>Fonds ou organisme de financement de la formation</option><option>Je souhaite être conseillé</option></select></label>
       </div>
-      <label class="f">Précisions sur votre projet<textarea id="msg" name="message" placeholder="Profils concernés, objectifs, contraintes de calendrier…"></textarea></label>
+      <label class="f"><span>Précisions sur votre projet</span><textarea id="msg" name="message" placeholder="Profils concernés, objectifs, contraintes de calendrier…"></textarea></label>
     </section>
 
     <label class="consent"><input type="checkbox" id="consent" required><span>J’accepte qu’IAM utilise ces informations pour me recontacter au sujet de cette demande. Elles ne sont pas transmises à des tiers.</span></label>
@@ -167,7 +170,7 @@ td.r{text-align:right}
 
 <footer class="sitefoot">
   <div class="inner"><a href="index.html">Accueil – l’offre</a><a href="test-positionnement.html">Test de positionnement</a><a href="demande-entreprise.html">Offre entreprises</a><span>IAM × Aviro · Centre d’excellence Cloud &amp; IA</span></div>
-  <div class="inner" style="padding-top:0">7606 Mermoz, Dakar · Tél. 33 869 36 36 · 77 698 39 66 · 76 740 99 03 · info@groupeiam.com · elearning-infos@groupeiam.com</div>
+  <div class="inner" style="padding-top:0">7606 Mermoz, Dakar · Tél. 33 869 36 36 · 77 698 39 66 · 76 740 99 03 · info@groupeiam.com · elearning-infos@groupeiam.com · <a href="https://www.groupeiam.com">www.groupeiam.com</a></div>
 </footer>
 
 <script>
