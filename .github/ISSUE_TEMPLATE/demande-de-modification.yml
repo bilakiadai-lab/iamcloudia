@@ -1,0 +1,43 @@
+name: Demande de modification
+description: Demander un changement sur le site (texte, prix, rubrique, correction).
+title: "[Modification] "
+labels: ["demande"]
+body:
+  - type: dropdown
+    id: page
+    attributes:
+      label: Page concernée
+      options:
+        - Page de l'offre (accueil)
+        - Tests de positionnement
+        - Formulaire entreprises
+        - Toutes les pages
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type de demande
+      options:
+        - Texte, prix, dates ou coordonnées
+        - Nouvelle rubrique ou fonctionnalité
+        - Correction d'une erreur
+    validations:
+      required: true
+  - type: textarea
+    id: besoin
+    attributes:
+      label: Ce qui doit changer
+      description: Le texte actuel, le nouveau texte, ou une capture d'écran annotée.
+    validations:
+      required: true
+  - type: input
+    id: demandeur
+    attributes:
+      label: Demandé par
+      placeholder: "Ex. IAM – service formation"
+  - type: input
+    id: echeance
+    attributes:
+      label: Pour quand
+      placeholder: "Ex. avant l'annonce du 2 novembre"

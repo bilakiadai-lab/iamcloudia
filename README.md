@@ -34,9 +34,16 @@ Dans Render : Settings › Custom Domains › ajouter le domaine. Puis dans Squa
 
 Supprimer les éventuels enregistrements AAAA sur le même hôte. Render active le HTTPS automatiquement une fois le DNS vérifié.
 
+## Environnements
+
+| Environnement | Branche | Service Render |
+| --- | --- | --- |
+| Production | `main` | Site public |
+| Recette | `develop` | `iam-cloud-ia-recette` (non indexé par les moteurs de recherche) |
+
 ## Mettre à jour le site
 
-Modifier le fichier HTML concerné (directement sur GitHub avec le crayon « Edit », ou en local), puis enregistrer un commit sur `main`. Le site est à jour en une à deux minutes.
+Toute modification suit le GitFlow allégé décrit dans [CONTRIBUTING.md](CONTRIBUTING.md) : branche `feature/...` depuis `develop`, pull request, vérifications automatiques, validation sur la recette, puis pull request de `develop` vers `main`. Les versions sont listées dans [CHANGELOG.md](CHANGELOG.md).
 
 ## Données des candidats
 

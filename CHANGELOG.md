@@ -1,0 +1,21 @@
+# Journal des versions
+
+Les changements de chaque version du site, du plus récent au plus ancien. Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), versions selon [SemVer](https://semver.org/lang/fr/).
+
+## [Non publié]
+
+### Ajouté
+- Vérifications automatiques à chaque pull request : structure HTML, liens internes, contenu à compléter, affichage sur téléphone et ordinateur, liens externes (informatif).
+- Guide de contribution (GitFlow allégé), modèles de pull request et de demande de modification.
+- Journal des versions.
+
+## [1.0.0] - 2026-11-02
+
+Première mise en ligne du site du Centre d'excellence Cloud & IA.
+
+### Ajouté
+- Page de l'offre : parcours Cloud Foundations et AI Foundations, centre d'examen Pearson VUE d'IAM, avantages et débouchés d'une certification AWS, méthode, programme semaine par semaine, format d'une session de 2 h, tarifs (dont le Pack Excellence), paiement en 1 ou 2 fois par Orange Money ou Wave, offre entreprises, FAQ.
+- Tests de positionnement Cloud Foundations et AI Foundations, avec code résultat à transmettre à IAM.
+- Formulaire de demande de tarif groupe pour les entreprises, avec code de demande.
+- Navigation entre les pages, logos IAM, coordonnées d'IAM et liens vers les sites d'IAM et d'Aviro.
+- Déploiement sur Render (site statique et Dockerfile nginx).
