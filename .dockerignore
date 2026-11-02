@@ -1,3 +1,7 @@
 .git
 README.md
 render.yaml
+scripts
+.github
+CHANGELOG.md
+CONTRIBUTING.md
