@@ -26,6 +26,60 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #C4
   .signup-box{padding:28px 20px!important}
   section{padding-left:16px!important;padding-right:16px!important}
 }
+.hero-photo{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:20px}
+.hero-tiles{flex:1 1 100%;min-width:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.band-photo{flex:1 1 100%;margin:0;position:relative}
+.band-photo img{display:block;width:100%;height:260px;object-fit:cover;object-position:center 75%;border-radius:14px}
+.band-photo figcaption,.photo-pair figcaption{font-size:14px;margin-top:8px}
+.band-photo figcaption{color:#C7CFDA}
+.photo-pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.photo-pair figure{margin:0}
+.photo-pair img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;border-radius:16px}
+.photo-pair figcaption{color:#4B5565}
+.side-photo{flex:1 1 280px;min-width:0;max-width:380px;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:14px}
+.signup-photo{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:center 30%;border-radius:16px}
+.cal-bar{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;padding:10px 0;background:rgba(247,248,250,.95);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border-bottom:1px solid #DCE1E8}
+.cal-toggle{background:#FFFFFF;color:#0E1726;border:1px solid #B8C1CE;border-radius:10px;padding:10px 16px;min-height:44px;font:600 15px Inter,system-ui,sans-serif;cursor:pointer}
+.tl{display:flex;gap:3px;padding-top:8px}
+.tl-seg{flex:1 1 0;min-width:0;height:30px;border-radius:6px;color:#FFFFFF;font:600 12px Inter,system-ui,sans-serif;display:flex;align-items:center;justify-content:center;position:relative}
+.tl-dot{position:absolute;top:-8px;left:50%;margin-left:-7px;width:10px;height:10px;border-radius:50%;background:#F2A33A;border:2px solid #F7F8FA}
+.phases{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.phase{text-align:left;background:#FFFFFF;color:#0E1726;border:1px solid #DCE1E8;border-top:5px solid var(--c);border-radius:14px;padding:16px;cursor:pointer;font:inherit;display:flex;flex-direction:column;gap:6px}
+.phase:hover{border-color:var(--c)}
+.phase-k,.wk-k{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#4B5565}
+.phase-t{font-family:Sora,sans-serif;font-weight:600;font-size:18px;line-height:1.25}
+.phase-d{font-size:15px;color:#4B5565}
+.phase-go{margin-top:auto;padding-top:6px;font-size:14px;font-weight:600;color:var(--c);display:inline-flex;align-items:center;gap:4px}
+.ms-row{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.ms{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:600;line-height:1.5}
+.ms-legend{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;color:#4B5565}
+.ms-legend li{display:flex;gap:6px;align-items:center}
+.ms-legend li::before{content:"";width:10px;height:10px;border-radius:50%;background:#F2A33A;flex:0 0 10px}
+.ms-w{font-weight:600;color:#0E1726}
+.wk-h{margin:0 0 12px;font-family:Sora,sans-serif;font-size:20px;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;padding-left:12px;border-left:5px solid var(--c)}
+.wk-h span{font-family:Inter,system-ui,sans-serif;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#4B5565}
+.wk-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
+.wk{background:#FFFFFF;border:1px solid #DCE1E8;border-left:5px solid var(--c);border-radius:14px}
+.wk summary{list-style:none;padding:16px 18px;display:flex;gap:12px;align-items:flex-start;min-height:44px}
+.wk summary::-webkit-details-marker{display:none}
+.wk-main{display:flex;flex-direction:column;gap:6px;min-width:0;align-items:flex-start}
+.wk-t{font-family:Sora,sans-serif;font-weight:600;font-size:17px;line-height:1.3}
+.sess{border:1px solid #B8C1CE;border-radius:999px;padding:2px 12px;font-size:13px;font-weight:600;color:#0E1726}
+.chev{flex:0 0 22px;margin-left:auto;color:#4B5565;transition:transform .2s}
+.wk[open] .chev{transform:rotate(180deg)}
+.wk dl{margin:0;padding:14px 18px 18px;border-top:1px solid #E8ECF1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 20px}
+.wk dt{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#4B5565}
+.wk dd{margin:3px 0 0;font-size:15px;line-height:1.5}
+@media (max-width:900px){.phases{grid-template-columns:repeat(2,minmax(0,1fr))}.wk-grid{grid-template-columns:1fr}}
+@media (max-width:640px){
+  .phases{grid-template-columns:1fr}
+  .wk dl{grid-template-columns:1fr}
+  .hero-photo{aspect-ratio:4/3}
+  .band-photo img{height:180px}
+  .cal-bar .tab{padding:10px 12px;font-size:14px}
+  .side-photo{max-width:none}
+}
+@media (max-width:480px){.tab-long{display:none}.cal-bar{flex-wrap:nowrap}.cal-bar .tab{padding:10px 14px}.cal-toggle{padding:10px 12px;font-size:14px}.ms-legend{display:none}}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 </style>
 </head>
@@ -67,7 +121,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #C4
 <a href="#parcours" style="border: 1px solid #5C6A80; color: #FFFFFF; text-decoration: none; font-weight: 500; padding: 14px 24px; border-radius: 10px; min-height: 48px; box-sizing: border-box; display: inline-flex; align-items: center">Comparer les parcours</a>
 </div>
 </div>
-<div style="flex: 1 1 340px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+<div style="flex: 1 1 340px; min-width: 0"><img class="hero-photo" src="img/etudiants-1000.webp" srcset="img/etudiants-1000.webp 1000w, img/etudiants-600.webp 600w" sizes="(max-width: 640px) 100vw, 480px" width="1000" height="1000" alt="Deux apprenants du Centre d’excellence travaillent ensemble sur un ordinateur portable et une tablette" fetchpriority="high"></div>
+<div class="hero-tiles">
 <div style="background: #18243A; border: 1px solid #2A3954; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 4px">
 <span style="font-family: Sora, sans-serif; font-size: 36px; font-weight: 700; color: #FFFFFF">13</span>
 <span style="font-size: 14px; color: #C7CFDA">semaines, de l’orientation à la certification</span>
@@ -100,6 +155,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #C4
 <section id="examen" style="padding: 40px 24px 8px">
 <div style="max-width: 1200px; margin: 0 auto; background: #0E1726; color: #FFFFFF; border-radius: 24px; padding: 36px 40px; display: flex; flex-wrap: wrap; gap: 28px 48px; align-items: center; position: relative; overflow: hidden">
 <div aria-hidden="true" style="position: absolute; left: 0; top: 0; bottom: 0; width: 8px; background: #F2A33A"></div>
+<figure class="band-photo"><img class="" src="img/campus-iam-1200.webp" srcset="img/campus-iam-1200.webp 1200w, img/campus-iam-640.webp 640w" sizes="(max-width: 640px) 100vw, 1120px" width="1200" height="720" alt="Les bâtiments du campus IAM à Mermoz, Dakar" loading="lazy" decoding="async"><figcaption>Le campus IAM, 7606 Mermoz, Dakar</figcaption></figure>
 <div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
 <span style="align-self: flex-start; background: #F2A33A; color: #0E1726; border-radius: 999px; padding: 6px 14px; font-size: 14px; font-weight: 600">Centre de test agréé Pearson VUE</span>
 <h2 style="margin: 0; font-family: Sora, sans-serif; font-size: 34px; line-height: 1.15">Passez votre examen AWS sur place, au centre Pearson VUE d’IAM</h2>
@@ -250,6 +306,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #C4
 <section style="padding: 48px 24px">
 <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px">
 <h2 style="margin: 0; font-family: Sora, sans-serif; font-size: 40px; line-height: 1.15; letter-spacing: -0.01em">Comment ça marche</h2>
+<div class="photo-pair"><figure><img class="" src="img/seance-atelier-1200.webp" srcset="img/seance-atelier-1200.webp 1200w, img/seance-atelier-640.webp 640w" sizes="(max-width: 760px) 100vw, 590px" width="1200" height="900" alt="Apprenants et formateur réunis autour d’une table de travail au Centre d’excellence" loading="lazy" decoding="async"><figcaption>Séance en atelier au Centre d’excellence</figcaption></figure><figure><img class="" src="img/projet-equipe-1200.webp" srcset="img/projet-equipe-1200.webp 1200w, img/projet-equipe-640.webp 640w" sizes="(max-width: 760px) 100vw, 590px" width="1200" height="898" alt="Une équipe présente son projet devant un tableau de bord" loading="lazy" decoding="async"><figcaption>Projet en équipe, de la semaine 6 à la restitution</figcaption></figure></div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px">
 <div style="background: #FFFFFF; border: 1px solid #DCE1E8; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 10px">
 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0E1726" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"></rect><path d="M8 21h8M12 17v4"></path><path d="M10 8.5l4 2-4 2z"></path></svg>
@@ -288,26 +345,36 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #C4
 <!-- Déroulé -->
 <section id="deroule" style="padding: 48px 24px">
 <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
-<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px">
-<div style="display: flex; flex-direction: column; gap: 10px; max-width: 640px">
-<h2 style="margin: 0; font-family: Sora, sans-serif; font-size: 40px; line-height: 1.15; letter-spacing: -0.01em">Le programme, semaine par semaine</h2>
-<p style="margin: 0; color: #4B5565">La semaine 5 est consacrée aux labs. L’examen se passe en fin de semaine 12, après un bootcamp de révision de 2 h.</p>
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 720px">
+<h2 style="margin: 0; font-family: Sora, sans-serif; font-size: 40px; line-height: 1.15; letter-spacing: -0.01em">Le calendrier du programme</h2>
+<p style="margin: 0; color: #4B5565">13 semaines en 4 phases : 10 séances accompagnées de 2 h, une semaine de labs, un bootcamp de révision, puis l’examen et la restitution des projets. Démarrage le 14 décembre 2026 ; les dates et horaires de chaque séance s’afficheront ici dès leur confirmation.</p>
 </div>
-<div role="group" aria-label="Choisir le parcours" class="tabs" style="display: flex; flex-wrap: wrap; gap: 6px; background: #FFFFFF; border: 1px solid #DCE1E8; border-radius: 12px; padding: 6px">
-<button type="button" class="tab" id="tab-cloud" data-track="cloud" aria-pressed="true">Cloud Foundations</button>
-<button type="button" class="tab" id="tab-ai" data-track="ai" aria-pressed="false">AI Foundations</button>
+<div class="cal-bar">
+<div role="group" aria-label="Choisir le parcours" style="display: flex; gap: 6px; background: #FFFFFF; border: 1px solid #DCE1E8; border-radius: 12px; padding: 6px">
+<button type="button" class="tab" id="tab-cloud" data-track="cloud" aria-pressed="true">Cloud<span class="tab-long"> Foundations</span></button>
+<button type="button" class="tab" id="tab-ai" data-track="ai" aria-pressed="false">AI<span class="tab-long"> Foundations</span></button>
 </div>
+<button type="button" class="cal-toggle" id="cal-toggle" aria-pressed="false">Tout déplier</button>
 </div>
-<ol id="weeks" style="list-style: none; margin: 0; padding: 0; background: #FFFFFF; border: 1px solid #DCE1E8; border-radius: 18px; overflow: hidden"></ol>
+<div style="display: flex; flex-direction: column; gap: 14px">
+<h3 style="margin: 0; font-family: Sora, sans-serif; font-size: 22px">Les 4 phases</h3>
+<div class="tl" id="cal-timeline" aria-hidden="true"></div>
+<div class="phases" id="cal-phases"></div>
+<ul class="ms-legend" id="cal-milestones" aria-label="Jalons du programme"></ul>
+</div>
+<div id="cal-weeks" style="display: flex; flex-direction: column; gap: 28px"></div>
 </div>
 </section>
 
 <!-- Format d'une session -->
 <section style="padding: 48px 24px">
 <div style="max-width: 1200px; margin: 0 auto; background: #FFFFFF; border: 1px solid #DCE1E8; border-radius: 18px; padding: 36px; display: flex; flex-direction: column; gap: 24px">
-<div style="display: flex; flex-direction: column; gap: 8px">
-<h2 style="margin: 0; font-family: Sora, sans-serif; font-size: 32px; line-height: 1.2">Deux heures de session, bien utilisées</h2>
-<p style="margin: 0; color: #4B5565">Chaque session suit le même découpage : vous arrivez préparé, vous pratiquez sur la console AWS avec le formateur, et vous repartez avec une tâche claire.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 20px 32px; align-items: center">
+<div style="flex: 999 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+<h2 style="margin: 0; font-family: Sora, sans-serif; font-size: 32px; line-height: 1.2">Deux heures de séance, bien utilisées</h2>
+<p style="margin: 0; color: #4B5565">Chaque séance suit le même découpage : vous arrivez préparé, vous pratiquez sur la console AWS avec le formateur, et vous repartez avec une tâche claire.</p>
+</div>
+<img class="side-photo" src="img/accompagnement-1200.webp" srcset="img/accompagnement-1200.webp 1200w, img/accompagnement-640.webp 640w" sizes="(max-width: 640px) 100vw, 360px" width="1200" height="898" alt="Un formateur accompagne une apprenante devant son ordinateur" loading="lazy" decoding="async">
 </div>
 <div aria-hidden="true" style="display: flex; height: 14px; border-radius: 999px; overflow: hidden; gap: 3px">
 <div style="flex: 15 1 0; background: #0E1726"></div>
@@ -414,8 +481,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #C4
 <li style="display: flex; gap: 14px"><span style="flex: 0 0 34px; height: 34px; border-radius: 999px; background: #F2A33A; color: #0E1726; font-weight: 700; display: flex; align-items: center; justify-content: center">1</span><span><strong>Test de positionnement</strong><br><span style="color: #C7CFDA">Informatique, anglais, Cloud et IA, en ligne.</span></span></li>
 <li style="display: flex; gap: 14px"><span style="flex: 0 0 34px; height: 34px; border-radius: 999px; background: #F2A33A; color: #0E1726; font-weight: 700; display: flex; align-items: center; justify-content: center">2</span><span><strong>Orientation</strong><br><span style="color: #C7CFDA">Vous recevez le parcours recommandé.</span></span></li>
 <li style="display: flex; gap: 14px"><span style="flex: 0 0 34px; height: 34px; border-radius: 999px; background: #F2A33A; color: #0E1726; font-weight: 700; display: flex; align-items: center; justify-content: center">3</span><span><strong>Inscription et paiement</strong><br><span style="color: #C7CFDA">En ligne, puis paiement en 1 ou 2 fois par Orange Money, Wave ou sur place, avant le 4 décembre 2026.</span></span></li>
-<li style="display: flex; gap: 14px"><span style="flex: 0 0 34px; height: 34px; border-radius: 999px; background: #F2A33A; color: #0E1726; font-weight: 700; display: flex; align-items: center; justify-content: center">4</span><span><strong>Démarrage</strong><br><span style="color: #C7CFDA">Session de lancement le 14 décembre 2026.</span></span></li>
+<li style="display: flex; gap: 14px"><span style="flex: 0 0 34px; height: 34px; border-radius: 999px; background: #F2A33A; color: #0E1726; font-weight: 700; display: flex; align-items: center; justify-content: center">4</span><span><strong>Démarrage</strong><br><span style="color: #C7CFDA">Séance de lancement le 14 décembre 2026.</span></span></li>
 </ol>
+<img class="signup-photo" src="img/inscription-1000.webp" srcset="img/inscription-1000.webp 1000w, img/inscription-600.webp 600w" sizes="(max-width: 640px) 100vw, 540px" width="1000" height="750" alt="Une apprenante souriante, tablette en main" loading="lazy" decoding="async">
 </div>
 <div style="flex: 1 1 380px; min-width: 0; background: #FFFFFF; color: #0E1726; border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 16px">
 <span style="font-family: Sora, sans-serif; font-weight: 600; font-size: 20px">Passez le test de positionnement</span>
@@ -458,54 +526,121 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #C4
 </div>
 <script>
 (function(){
+/* Dates et horaires des séances : à compléter dès confirmation, par numéro de semaine.
+   Exemple : 1: "Lundi 14 décembre · 18 h – 20 h". Sans valeur, la fiche affiche la mention provisoire. */
+var DATES = { cloud: {}, ai: {} };
+var DATE_PENDING = "Communiqués à l’inscription";
+
+/* type : seance (n = numéro), labs, bootcamp, cloture. ms : jalons de la semaine. */
 var CLOUD_WEEKS = [
-  { w: 1, tag: "S1", live: true, theme: "Lancement", goal: "Parcours, calendrier et règles du chat ; résultats du test ; activation AWS Academy et Skill Builder.", auto: "Module « Concepts du Cloud », quiz de départ", exam: "" },
-  { w: 2, tag: "S2", live: true, theme: "Concepts Cloud et infrastructure mondiale", goal: "IaaS, PaaS, SaaS ; régions, zones de disponibilité, points de présence.", auto: "Modules infrastructure, 10 questions type examen", exam: "" },
-  { w: 3, tag: "S3", live: true, theme: "Calcul et réseau", goal: "EC2, VPC, équilibrage de charge, Auto Scaling ; démo console.", auto: "Labs EC2 et VPC", exam: "" },
-  { w: 4, tag: "S4", live: true, theme: "Stockage et bases de données", goal: "S3, EBS, RDS, DynamoDB : quel service pour quel besoin.", auto: "Labs S3 et RDS", exam: "" },
-  { w: 5, tag: "Labs", live: false, theme: "Semaine de labs", goal: "Pas de session ; permanence renforcée dans le chat.", auto: "Labs Lambda et IAM", exam: "" },
-  { w: 6, tag: "S5", live: true, theme: "Sécurité et conformité", goal: "Responsabilité partagée, IAM (utilisateurs, rôles, MFA), services de sécurité.", auto: "Module sécurité ; lancement du projet en équipe", exam: "" },
-  { w: 7, tag: "S6", live: true, theme: "Serverless, supervision, architecture", goal: "Lambda, CloudWatch, CloudFormation ; haute disponibilité, Well-Architected.", auto: "Module architecture", exam: "" },
-  { w: 8, tag: "S7", live: true, theme: "Coûts, facturation et support", goal: "Tarification, Cost Explorer, AWS Budgets, plans de support.", auto: "En conditions réelles", exam: "Examen blanc n°1" },
-  { w: 9, tag: "S8", live: true, theme: "Correction de l’examen blanc n°1", goal: "Erreurs par domaine, pièges fréquents ; plan de remédiation individuel.", auto: "Remédiation", exam: "" },
-  { w: 10, tag: "S9", live: true, theme: "Cas pratiques", goal: "Scénarios d’entreprise : migration, résilience, optimisation des coûts.", auto: "En autonomie", exam: "Examen blanc n°2" },
-  { w: 11, tag: "S10", live: true, theme: "Bilan et décision de passage", goal: "Correction ciblée ; feu vert par candidat ; réservation Pearson VUE (centre IAM ou en ligne).", auto: "Remédiation sur les domaines faibles", exam: "" },
-  { w: 12, tag: "Bootcamp 2 h", live: true, theme: "Bootcamp de révision", goal: "Révision des 4 domaines, techniques de réponse ; 30 questions chronométrées.", auto: "Fin de semaine", exam: "Examen de certification" },
-  { w: 13, tag: "Clôture", live: false, theme: "Clôture de la promotion", goal: "Présentation des projets en équipe, retours d’expérience, bilan, orientation vers AI Foundations.", auto: "—", exam: "" }
+  { w: 1, type: "seance", n: 1, theme: "Lancement", goal: "Présentation du parcours, du calendrier et du groupe d’entraide ; résultats du test de positionnement ; activation d’AWS Academy et de Skill Builder.", auto: "Module « Concepts du Cloud » et quiz de départ.", res: "Vos accès sont actifs et vos objectifs personnels sont fixés.", ms: [] },
+  { w: 2, type: "seance", n: 2, theme: "Concepts Cloud et infrastructure mondiale", goal: "IaaS, PaaS, SaaS ; régions, zones de disponibilité, points de présence.", auto: "Modules infrastructure et 10 questions type examen.", res: "Vous expliquez les modèles de service et savez choisir une région.", ms: [] },
+  { w: 3, type: "seance", n: 3, theme: "Calcul et réseau", goal: "EC2, VPC, équilibrage de charge, Auto Scaling ; démonstration sur la console.", auto: "Labs EC2 et VPC.", res: "Vous lancez une instance EC2 dans un VPC et expliquez l’équilibrage de charge.", ms: [] },
+  { w: 4, type: "seance", n: 4, theme: "Stockage et bases de données", goal: "S3, EBS, RDS, DynamoDB : quel service pour quel besoin.", auto: "Labs S3 et RDS.", res: "Vous choisissez le bon service de stockage ou de base de données pour un besoin donné.", ms: [] },
+  { w: 5, type: "labs", theme: "Semaine de labs", goal: "Pas de séance cette semaine ; permanence renforcée dans le groupe d’entraide.", auto: "Labs Lambda et IAM.", res: "Les labs Lambda et IAM sont réalisés.", ms: [] },
+  { w: 6, type: "seance", n: 5, theme: "Sécurité et conformité", goal: "Modèle de responsabilité partagée, IAM (utilisateurs, rôles, MFA), services de sécurité.", auto: "Module sécurité ; constitution des équipes et choix du sujet de projet.", res: "Vous sécurisez un compte AWS ; votre équipe et son sujet de projet sont définis.", ms: ["projet"] },
+  { w: 7, type: "seance", n: 6, theme: "Serverless, supervision, architecture", goal: "Lambda, CloudWatch, CloudFormation ; haute disponibilité et cadre Well-Architected.", auto: "Module architecture ; avancement du projet.", res: "Vous décrivez une architecture hautement disponible selon le cadre Well-Architected.", ms: [] },
+  { w: 8, type: "seance", n: 7, theme: "Coûts, facturation et support", goal: "Tarification, Cost Explorer, AWS Budgets, plans de support.", auto: "Examen blanc n°1, en conditions réelles.", res: "Vous estimez un coût avec la calculatrice AWS ; vous connaissez votre score par domaine.", ms: ["blanc1"] },
+  { w: 9, type: "seance", n: 8, theme: "Correction de l’examen blanc n°1", goal: "Erreurs par domaine et pièges fréquents.", auto: "Remédiation sur vos domaines faibles.", res: "Vous avez un plan de remédiation individuel.", ms: [] },
+  { w: 10, type: "seance", n: 9, theme: "Cas pratiques", goal: "Scénarios d’entreprise : migration, résilience, optimisation des coûts.", auto: "Examen blanc n°2, en conditions réelles.", res: "Vous résolvez des scénarios d’entreprise et mesurez vos progrès.", ms: ["blanc2"] },
+  { w: 11, type: "seance", n: 10, theme: "Bilan et décision de passage", goal: "Correction ciblée de l’examen blanc n°2 ; feu vert par candidat.", auto: "Réservation de l’examen (centre Pearson VUE d’IAM ou en ligne) ; finalisation du projet.", res: "Votre examen est réservé, avec le feu vert du formateur.", ms: [] },
+  { w: 12, type: "bootcamp", theme: "Bootcamp de révision et examen", goal: "Révision des 4 domaines, techniques de réponse, 30 questions chronométrées.", auto: "Passage de l’examen en fin de semaine.", res: "Vous avez passé l’examen AWS Certified Cloud Practitioner.", ms: ["bootcamp", "examen"] },
+  { w: 13, type: "cloture", theme: "Clôture de la promotion", goal: "Présentation des projets en équipe, retours d’expérience et bilan.", auto: "Préparation de la présentation du projet.", res: "Votre projet est présenté et rejoint votre portfolio ; la suite de votre parcours est définie.", ms: ["restitution"] }
 ];
 var AI_WEEKS = [
-  { w: 1, tag: "S1", live: true, theme: "Lancement et rappels Cloud", goal: "Parcours, calendrier, règles du chat ; notions AWS indispensables pour démarrer.", auto: "Modules d’introduction Skill Builder, quiz de départ", exam: "" },
-  { w: 2, tag: "S2", live: true, theme: "Fondamentaux IA et ML", goal: "IA, ML, deep learning ; types d’apprentissage ; cycle de vie d’un projet ML.", auto: "Modules fondamentaux IA", exam: "" },
-  { w: 3, tag: "S3", live: true, theme: "IA générative", goal: "Modèles de fondation, tokens, embeddings ; forces, limites, hallucinations.", auto: "Modules IA générative", exam: "" },
-  { w: 4, tag: "S4", live: true, theme: "Amazon Bedrock", goal: "Choisir un modèle, playground, coûts ; démo de génération de texte.", auto: "Lab génération de texte", exam: "" },
-  { w: 5, tag: "Labs", live: false, theme: "Semaine de labs", goal: "Pas de session ; permanence renforcée dans le chat.", auto: "Labs résumé automatique et classification", exam: "" },
-  { w: 6, tag: "S5", live: true, theme: "Prompt engineering et RAG", goal: "Techniques de prompt ; bases de connaissances ; agents.", auto: "Lab chatbot avec base de connaissances ; lancement du projet en équipe", exam: "" },
-  { w: 7, tag: "S6", live: true, theme: "Personnaliser et évaluer un modèle", goal: "Prompt, RAG ou fine-tuning : quand choisir quoi ; évaluation ; SageMaker.", auto: "Module personnalisation", exam: "" },
-  { w: 8, tag: "S7", live: true, theme: "Amazon Q et cas d’usage métiers", goal: "Amazon Q, services IA prêts à l’emploi, cas d’usage par métier.", auto: "En conditions réelles", exam: "Examen blanc n°1" },
-  { w: 9, tag: "S8", live: true, theme: "Correction de l’examen blanc n°1", goal: "Erreurs par domaine, pièges fréquents ; plan de remédiation individuel.", auto: "Remédiation", exam: "" },
-  { w: 10, tag: "S9", live: true, theme: "IA responsable, sécurité, gouvernance", goal: "Biais, transparence, garde-fous ; sécurité des données ; conformité.", auto: "En autonomie", exam: "Examen blanc n°2" },
-  { w: 11, tag: "S10", live: true, theme: "Bilan et décision de passage", goal: "Correction ciblée ; feu vert par candidat ; réservation Pearson VUE (centre IAM ou en ligne).", auto: "Remédiation sur les domaines faibles", exam: "" },
-  { w: 12, tag: "Bootcamp 2 h", live: true, theme: "Bootcamp de révision", goal: "Révision des domaines de l’examen ; 30 questions chronométrées.", auto: "Fin de semaine", exam: "Examen de certification" },
-  { w: 13, tag: "Clôture", live: false, theme: "Clôture de la promotion", goal: "Présentation des projets en équipe (assistant IA), retours d’expérience, bilan.", auto: "—", exam: "" }
+  { w: 1, type: "seance", n: 1, theme: "Lancement et rappels Cloud", goal: "Présentation du parcours, du calendrier et du groupe d’entraide ; notions AWS indispensables pour démarrer.", auto: "Modules d’introduction Skill Builder et quiz de départ.", res: "Vos accès sont actifs et les notions AWS de base sont acquises.", ms: [] },
+  { w: 2, type: "seance", n: 2, theme: "Fondamentaux de l’IA et du ML", goal: "IA, ML, deep learning ; types d’apprentissage ; cycle de vie d’un projet ML.", auto: "Modules fondamentaux de l’IA.", res: "Vous distinguez IA, ML et deep learning et décrivez le cycle de vie d’un projet ML.", ms: [] },
+  { w: 3, type: "seance", n: 3, theme: "IA générative", goal: "Modèles de fondation, tokens, embeddings ; forces, limites, hallucinations.", auto: "Modules IA générative.", res: "Vous expliquez le fonctionnement d’un modèle de fondation et ses limites.", ms: [] },
+  { w: 4, type: "seance", n: 4, theme: "Amazon Bedrock", goal: "Choisir un modèle, playground, coûts ; démonstration de génération de texte.", auto: "Lab de génération de texte.", res: "Vous générez du texte avec Amazon Bedrock et en estimez le coût.", ms: [] },
+  { w: 5, type: "labs", theme: "Semaine de labs", goal: "Pas de séance cette semaine ; permanence renforcée dans le groupe d’entraide.", auto: "Labs de résumé automatique et de classification.", res: "Les labs de résumé et de classification sont réalisés.", ms: [] },
+  { w: 6, type: "seance", n: 5, theme: "Prompt engineering et RAG", goal: "Techniques de prompt ; bases de connaissances ; agents.", auto: "Lab chatbot avec base de connaissances ; constitution des équipes et choix du sujet de projet.", res: "Vous construisez un chatbot RAG ; votre équipe et son sujet de projet sont définis.", ms: ["projet"] },
+  { w: 7, type: "seance", n: 6, theme: "Personnaliser et évaluer un modèle", goal: "Prompt, RAG ou fine-tuning : quand choisir quoi ; évaluation ; SageMaker.", auto: "Module personnalisation ; avancement du projet.", res: "Vous choisissez la bonne méthode de personnalisation et savez évaluer un modèle.", ms: [] },
+  { w: 8, type: "seance", n: 7, theme: "Amazon Q et cas d’usage métiers", goal: "Amazon Q, services IA prêts à l’emploi, cas d’usage par métier.", auto: "Examen blanc n°1, en conditions réelles.", res: "Vous associez un cas d’usage au bon service IA ; vous connaissez votre score par domaine.", ms: ["blanc1"] },
+  { w: 9, type: "seance", n: 8, theme: "Correction de l’examen blanc n°1", goal: "Erreurs par domaine et pièges fréquents.", auto: "Remédiation sur vos domaines faibles.", res: "Vous avez un plan de remédiation individuel.", ms: [] },
+  { w: 10, type: "seance", n: 9, theme: "IA responsable, sécurité, gouvernance", goal: "Biais, transparence, garde-fous ; sécurité des données ; conformité.", auto: "Examen blanc n°2, en conditions réelles.", res: "Vous appliquez les principes de l’IA responsable et mesurez vos progrès.", ms: ["blanc2"] },
+  { w: 11, type: "seance", n: 10, theme: "Bilan et décision de passage", goal: "Correction ciblée de l’examen blanc n°2 ; feu vert par candidat.", auto: "Réservation de l’examen (centre Pearson VUE d’IAM ou en ligne) ; finalisation du projet.", res: "Votre examen est réservé, avec le feu vert du formateur.", ms: [] },
+  { w: 12, type: "bootcamp", theme: "Bootcamp de révision et examen", goal: "Révision des domaines de l’examen, 30 questions chronométrées.", auto: "Passage de l’examen en fin de semaine.", res: "Vous avez passé l’examen AWS Certified AI Practitioner.", ms: ["bootcamp", "examen"] },
+  { w: 13, type: "cloture", theme: "Clôture de la promotion", goal: "Présentation des projets en équipe (assistant IA), retours d’expérience et bilan.", auto: "Préparation de la présentation du projet.", res: "Votre assistant IA est présenté et rejoint votre portfolio.", ms: ["restitution"] }
 ];
-  var COLORS = {cloud: '#0B6E6E', ai: '#5B3CC4'};
-  function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
-  function render(track){
-    var list = track === 'ai' ? AI_WEEKS : CLOUD_WEEKS, accent = COLORS[track];
-    document.getElementById('weeks').innerHTML = list.map(function(x){
-      var bg = x.live ? accent : '#FFFFFF', fg = x.live ? '#FFFFFF' : '#0E1726', bd = x.live ? accent : '#B8C1CE';
-      return '<li style="display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-start;padding:18px 24px;border-bottom:1px solid #E8ECF1">' +
-        '<div style="flex:0 0 150px;display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;color:#4B5565;font-weight:600;text-transform:uppercase;letter-spacing:0.06em">Semaine ' + x.w + '</span>' +
-        '<span style="align-self:flex-start;background:' + bg + ';color:' + fg + ';border:1px solid ' + bd + ';border-radius:999px;padding:2px 12px;font-size:13px;font-weight:600">' + esc(x.tag) + '</span></div>' +
-        '<div style="flex:999 1 380px;min-width:0;display:flex;flex-direction:column;gap:4px"><span style="font-family:Sora,sans-serif;font-weight:600;font-size:18px">' + esc(x.theme) + '</span><span style="color:#4B5565;font-size:16px">' + esc(x.goal) + '</span></div>' +
-        '<div style="flex:1 1 240px;min-width:0;display:flex;flex-direction:column;gap:6px;font-size:15px"><span style="color:#4B5565">' + esc(x.auto) + '</span>' +
-        (x.exam ? '<span style="align-self:flex-start;background:#FDF0DC;color:#7A4A0B;border-radius:6px;padding:2px 10px;font-size:13px;font-weight:600">' + esc(x.exam) + '</span>' : '') +
-        '</div></li>';
-    }).join('');
-    ['cloud','ai'].forEach(function(t){ document.getElementById('tab-' + t).setAttribute('aria-pressed', t === track ? 'true' : 'false'); });
-  }
-  document.querySelectorAll('.tab').forEach(function(b){ b.addEventListener('click', function(){ render(b.dataset.track); }); });
-  render('cloud');
+var MILESTONES = {
+  projet: { label: "Lancement du projet", bg: "#E3F2EF", fg: "#0B5050" },
+  blanc1: { label: "Examen blanc n°1", bg: "#FDF0DC", fg: "#7A4A0B" },
+  blanc2: { label: "Examen blanc n°2", bg: "#FDF0DC", fg: "#7A4A0B" },
+  bootcamp: { label: "Bootcamp", bg: "#E4EEFA", fg: "#0F4C8A" },
+  examen: { label: "Examen de certification", bg: "#0E1726", fg: "#FFFFFF" },
+  restitution: { label: "Restitution des projets", bg: "#EEE8FB", fg: "#4A2FA0" }
+};
+var COLORS = { cloud: "#0B6E6E", ai: "#5B3CC4" };
+function phases(accent){
+  return [
+    { n: 1, name: "Lancement", from: 1, to: 1, color: "#4B5565", desc: "Prise en main des plateformes, objectifs et organisation." },
+    { n: 2, name: "Apprentissage et pratique", from: 2, to: 7, color: accent, desc: "Les notions de l’examen en séance et en lab, puis le démarrage du projet en équipe." },
+    { n: 3, name: "Préparation à l’examen", from: 8, to: 11, color: "#0F5FA8", desc: "Deux examens blancs, leur correction et un plan de remédiation individuel." },
+    { n: 4, name: "Certification et restitution", from: 12, to: 13, color: "#B05E08", desc: "Bootcamp, examen officiel, puis présentation des projets." }
+  ];
+}
+function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+function phaseOf(P, w){ for (var i = 0; i < P.length; i++) if (w >= P[i].from && w <= P[i].to) return P[i]; }
+function sessionLabel(x){
+  if (x.type === "seance") return "Séance " + x.n;
+  if (x.type === "labs") return "Pas de séance · labs";
+  if (x.type === "bootcamp") return "Bootcamp · 2 h";
+  return "Clôture";
+}
+function pill(k){ var m = MILESTONES[k]; return '<li class="ms" style="background:' + m.bg + ';color:' + m.fg + '"><svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z" fill="currentColor"/></svg>' + esc(m.label) + '</li>'; }
+var current = "cloud";
+function render(track){
+  current = track;
+  var list = track === "ai" ? AI_WEEKS : CLOUD_WEEKS, accent = COLORS[track], P = phases(accent), dates = DATES[track] || {};
+  document.getElementById("cal-timeline").innerHTML = list.map(function(x){
+    var p = phaseOf(P, x.w);
+    return '<div class="tl-seg" style="background:' + p.color + '">' + (x.ms.length ? '<span class="tl-dot"></span>' : '') + x.w + '</div>';
+  }).join("");
+  document.getElementById("cal-phases").innerHTML = P.map(function(p){
+    var ms = []; list.forEach(function(x){ if (x.w >= p.from && x.w <= p.to) ms = ms.concat(x.ms); });
+    return '<button type="button" class="phase" data-phase="' + p.n + '" style="--c:' + p.color + '">' +
+      '<span class="phase-k">Phase ' + p.n + ' · ' + (p.from === p.to ? 'Semaine ' + p.from : 'Semaines ' + p.from + ' à ' + p.to) + '</span>' +
+      '<span class="phase-t">' + esc(p.name) + '</span><span class="phase-d">' + esc(p.desc) + '</span>' +
+      (ms.length ? '<ul class="ms-row">' + ms.map(pill).join("") + '</ul>' : '') +
+      '<span class="phase-go">Voir les semaines <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></span></button>';
+  }).join("");
+  var legend = [];
+  list.forEach(function(x){ x.ms.forEach(function(k){ legend.push('<li><span class="ms-w">Semaine ' + x.w + '</span>' + esc(MILESTONES[k].label) + '</li>'); }); });
+  document.getElementById("cal-milestones").innerHTML = legend.join("");
+  document.getElementById("cal-weeks").innerHTML = P.map(function(p){
+    var weeks = list.filter(function(x){ return x.w >= p.from && x.w <= p.to; });
+    return '<div class="wk-group" id="phase-' + p.n + '"><h3 class="wk-h" style="--c:' + p.color + '"><span>Phase ' + p.n + '</span>' + esc(p.name) + '</h3><div class="wk-grid">' +
+      weeks.map(function(x){
+        var live = x.type === "seance" || x.type === "bootcamp";
+        var sess = '<span class="sess" style="' + (live ? 'background:' + accent + ';color:#FFFFFF;border-color:' + accent : '') + '">' + esc(sessionLabel(x)) + '</span>';
+        return '<details class="wk" style="--c:' + p.color + '"><summary>' +
+          '<span class="wk-main"><span class="wk-k">Semaine ' + x.w + '</span>' + sess +
+          '<span class="wk-t">' + esc(x.theme) + '</span>' + (x.ms.length ? '<ul class="ms-row">' + x.ms.map(pill).join("") + '</ul>' : '') + '</span>' +
+          '<svg class="chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>' +
+          '<dl><div><dt>' + (live ? 'Séance accompagnée' : 'Au programme') + '</dt><dd>' + esc(x.goal) + '</dd></div>' +
+          '<div><dt>Travail en autonomie</dt><dd>' + esc(x.auto) + '</dd></div>' +
+          '<div><dt>Résultat attendu</dt><dd>' + esc(x.res) + '</dd></div>' +
+          '<div><dt>Date et horaire</dt><dd>' + esc(dates[x.w] || DATE_PENDING) + '</dd></div></dl></details>';
+      }).join("") + '</div></div>';
+  }).join("");
+  ["cloud", "ai"].forEach(function(t){ document.getElementById("tab-" + t).setAttribute("aria-pressed", t === track ? "true" : "false"); });
+  var tg = document.getElementById("cal-toggle"); tg.setAttribute("aria-pressed", "false"); tg.textContent = "Tout déplier";
+  document.querySelectorAll("#cal-phases .phase").forEach(function(b){
+    b.addEventListener("click", function(){
+      var g = document.getElementById("phase-" + b.dataset.phase); if (!g) return;
+      var first = g.querySelector("details"); if (first) first.open = true;
+      var bar = document.querySelector(".cal-bar"), off = bar ? bar.offsetHeight + 12 : 12;
+      window.scrollTo({ top: g.getBoundingClientRect().top + window.pageYOffset - off, behavior: "smooth" });
+    });
+  });
+}
+document.querySelectorAll(".tab").forEach(function(b){ b.addEventListener("click", function(){ render(b.dataset.track); }); });
+document.getElementById("cal-toggle").addEventListener("click", function(){
+  var open = this.getAttribute("aria-pressed") !== "true";
+  document.querySelectorAll("#cal-weeks details").forEach(function(d){ d.open = open; });
+  this.setAttribute("aria-pressed", open ? "true" : "false"); this.textContent = open ? "Tout replier" : "Tout déplier";
+});
+render("cloud");
 })();
 </script>
 </body>
