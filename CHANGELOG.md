@@ -5,6 +5,8 @@ Les changements de chaque version du site, du plus récent au plus ancien. Forma
 ## [Non publié]
 
 ### Ajouté
+- Calendrier du programme en deux niveaux : frise des 4 phases avec jalons, puis une fiche dépliable par semaine (séance accompagnée, travail en autonomie, résultat attendu, date et horaire). Mention « Séance n » en toutes lettres, sélecteur de parcours toujours visible, bouton « Tout déplier ».
+- Six photos fournies par IAM (haut de page, campus, méthode, format des séances, inscription), en WebP, adaptées au téléphone et chargées au fil du défilement.
 - Vérifications automatiques à chaque pull request : structure HTML, liens internes, contenu à compléter, affichage sur téléphone et ordinateur, liens externes (informatif).
 - Guide de contribution (GitFlow allégé), modèles de pull request et de demande de modification.
 - Journal des versions.
