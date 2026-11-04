@@ -4,12 +4,21 @@ Les changements de chaque version du site, du plus récent au plus ancien. Forma
 
 ## [Non publié]
 
+## [1.1.0] - 2026-11-04
+
+Calendrier repensé et photos du Centre d’excellence, suite aux retours d’IAM.
+
 ### Ajouté
 - Calendrier du programme en deux niveaux : frise des 4 phases avec jalons, puis une fiche dépliable par semaine (séance accompagnée, travail en autonomie, résultat attendu, date et horaire). Mention « Séance n » en toutes lettres, sélecteur de parcours toujours visible, bouton « Tout déplier ».
 - Six photos fournies par IAM (haut de page, campus, méthode, format des séances, inscription), en WebP, adaptées au téléphone et chargées au fil du défilement.
 - Vérifications automatiques à chaque pull request : structure HTML, liens internes, contenu à compléter, affichage sur téléphone et ordinateur, liens externes (informatif).
 - Guide de contribution (GitFlow allégé), modèles de pull request et de demande de modification.
 - Journal des versions.
+
+### Modifié
+- Offre de lancement : 15 % de remise pour les 20 premiers inscrits jusqu’au 20 novembre.
+- FAQ : examen en français ou en anglais, au choix.
+- Paiement : la mention du numéro marchand est retirée en attendant les informations d’IAM.
 
 ## [1.0.0] - 2026-11-02
 
