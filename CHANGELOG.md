@@ -17,7 +17,7 @@ Calendrier repensé et photos du Centre d’excellence, suite aux retours d’IA
 
 ### Modifié
 - Offre de lancement : 15 % de remise pour les 20 premiers inscrits jusqu’au 20 novembre.
-- FAQ : langue de l’examen précisée (français ou anglais pour Cloud Practitioner, anglais pour AI Practitioner).
+- FAQ : examen en français ou en anglais, au choix.
 - Paiement : la mention du numéro marchand est retirée en attendant les informations d’IAM.
 
 ## [1.0.0] - 2026-11-02
