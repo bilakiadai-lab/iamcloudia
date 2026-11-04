@@ -1,0 +1,58 @@
+name: Vérifications du site
+
+on:
+  pull_request:
+    branches: [develop, main]
+  push:
+    branches: [develop, main]
+
+permissions:
+  contents: read
+
+jobs:
+  verifications:
+    name: Vérifications du site
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Structure HTML, liens internes et contenu à compléter
+        env:
+          # Les crochets à compléter ([numéro]…) bloquent seulement la mise en production.
+          STRICT_PLACEHOLDERS: ${{ (github.base_ref == 'main' || github.ref == 'refs/heads/main') && '1' || '0' }}
+        run: python scripts/check_site.py site
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Installer le navigateur de test
+        run: |
+          npm install --no-save playwright@1.48.2
+          npx playwright install --with-deps chromium
+
+      - name: Affichage sur téléphone et ordinateur
+        run: node scripts/mobile_check.mjs site
+
+  liens-externes:
+    name: Liens externes (informatif)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: Vérifier les liens externes
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --exclude linkedin.com
+            --exclude fonts.googleapis.com
+            --exclude fonts.gstatic.com
+            site/*.html
+          fail: false
