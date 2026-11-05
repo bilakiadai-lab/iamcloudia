@@ -4,6 +4,11 @@ Les changements de chaque version du site, du plus récent au plus ancien. Forma
 
 ## [Non publié]
 
+## [1.1.1] - 2026-11-05
+
+### Corrigé
+- Offre de lancement : la remise de 15 % pour les 20 premiers inscrits est retirée en attendant la validation d’IAM ; les conditions sont communiquées à l’inscription.
+
 ## [1.1.0] - 2026-11-04
 
 Calendrier repensé et photos du Centre d’excellence, suite aux retours d’IAM.
