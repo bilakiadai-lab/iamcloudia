@@ -4,6 +4,8 @@ Les changements de chaque version du site, du plus récent au plus ancien. Forma
 
 ## [Non publié]
 
+## [1.2.0] - 2026-11-06
+
 ### Modifié
 - Numéro WhatsApp d’IAM pour l’envoi des codes : +221 76 740 99 62. Bouton « Envoyer par WhatsApp » avec le code prérempli, sur le test de positionnement et sur le formulaire entreprises.
 
