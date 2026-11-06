@@ -278,8 +278,8 @@ fieldset.q legend{font-weight:600;padding:0;margin-bottom:8px;line-height:1.45}
       '<section class="card" aria-labelledby="code-h"><h2 id="code-h">Envoyez votre code à IAM</h2>' +
       '<p style="margin:0">Ce code contient votre résultat. Copiez-le et envoyez-le à IAM pour finaliser votre orientation et votre inscription.</p>' +
       '<div class="code" id="code">' + esc(code) + '</div>' +
-      '<div class="submit-row"><button class="btn primary" type="button" id="copy">Copier le code</button><span class="hint" id="copied" aria-live="polite"></span></div>' +
-      '<ol class="steps"><li>Envoyez le code par WhatsApp au <strong>77 698 39 66 ou 76 740 99 03</strong> ou par e-mail à <strong>info@groupeiam.com</strong>.</li><li>IAM vous confirme votre parcours sous 48 h ouvrées.</li><li>Vous réglez votre inscription par Orange Money, Wave ou sur place à IAM.</li></ol></section>' +
+      '<div class="submit-row"><a class="btn primary" href="https://wa.me/221767409962?text=' + encodeURIComponent("Bonjour IAM, voici mon code de test de positionnement : " + code) + '" target="_blank" rel="noopener">Envoyer par WhatsApp</a><button class="btn" type="button" id="copy">Copier le code</button><span class="hint" id="copied" aria-live="polite"></span></div>' +
+      '<ol class="steps"><li>Envoyez le code par WhatsApp au <strong>+221 76 740 99 62</strong> ou par e-mail à <strong>info@groupeiam.com</strong>.</li><li>IAM vous confirme votre parcours sous 48 h ouvrées.</li><li>Vous réglez votre inscription par Orange Money, Wave ou sur place à IAM.</li></ol></section>' +
       '<p class="hint">Les bonnes réponses ne sont pas affichées : elles seront travaillées pendant le parcours.</p>';
     document.getElementById("copy").addEventListener("click", function(){
       var msg = document.getElementById("copied");
