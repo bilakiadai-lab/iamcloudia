@@ -4,6 +4,9 @@ Les changements de chaque version du site, du plus récent au plus ancien. Forma
 
 ## [Non publié]
 
+### Modifié
+- Paiement : IAM communique les modalités de paiement par WhatsApp (+221 76 740 99 62) ; mention ajoutée dans les tarifs, l’inscription, la FAQ et le test de positionnement.
+
 ## [1.2.0] - 2026-11-06
 
 ### Modifié
