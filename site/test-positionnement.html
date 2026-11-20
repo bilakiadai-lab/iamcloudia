@@ -62,6 +62,9 @@ fieldset.q legend{font-weight:600;padding:0;margin-bottom:8px;line-height:1.45}
 .submit-row{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between}
 .progress{font-size:15px;color:var(--muted)}
 .err{color:var(--bad);margin:0;font-weight:500}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted);margin-top:14px}
+.consent input{margin-top:3px;width:18px;height:18px;flex:0 0 18px}
+.saved{margin:0 0 4px;padding:10px 14px;border-radius:10px;background:#E3F2EF;color:#0B5050;font-weight:600}
 .choose{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
 .choose a{display:flex;flex-direction:column;gap:8px;padding:22px;border-radius:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);text-decoration:none}
 .choose a:hover{border-color:var(--line-strong)}
@@ -119,6 +122,22 @@ fieldset.q legend{font-weight:600;padding:0;margin-bottom:8px;line-height:1.45}
 
 <script>
 (function(){
+  /* Enregistrement automatique dans le fichier de réception (voir integration/README.md).
+     Adresse de l'application Apps Script ; vide = désactivé, le code reste à envoyer à la main. */
+  var INSCRIPTIONS_URL = "https://script.google.com/macros/s/AKfycbxzyiSGVp6BkUzmr-epLn5Nlb1ZBoV-2_p87cVJ4ZnxInstXTw30NoKh_Lz4HSlpAE/exec";
+  function source(){
+    var s = "";
+    try { s = new URLSearchParams(location.search).get("src") || ""; if (s) sessionStorage.setItem("src", s); else s = sessionStorage.getItem("src") || ""; } catch (e) {}
+    return String(s).replace(/[^A-Za-z0-9_-]/g, "").slice(0, 40);
+  }
+  source();
+  function enregistrer(code, hp){
+    if (!INSCRIPTIONS_URL || hp || !window.fetch) return Promise.resolve(false);
+    return fetch(INSCRIPTIONS_URL, { method: "POST", mode: "no-cors", keepalive: true, headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({ code: code, src: source(), page: location.pathname.split("/").pop() || "index.html" }) })
+      .then(function(){ return true; }, function(){ return false; });
+  }
+
   /* Chaque question : domaine, énoncé, options, index de la bonne réponse. */
   var TESTS = {
     cloud: {
@@ -166,7 +185,7 @@ fieldset.q legend{font-weight:600;padding:0;margin-bottom:8px;line-height:1.45}
   };
 
   var app = document.getElementById("app");
-  var state = { test: null, answers: {}, who: { nom: "", email: "", tel: "" } };
+  var state = { test: null, answers: {}, who: { nom: "", email: "", tel: "" }, consent: false };
   function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]; }); }
 
   /* ---------- Code résultat ---------- */
@@ -229,7 +248,7 @@ fieldset.q legend{font-weight:600;padding:0;margin-bottom:8px;line-height:1.45}
       '<label class="f">Nom complet<input id="w-nom" autocomplete="name" required value="' + esc(state.who.nom) + '"></label>' +
       '<label class="f">E-mail<input id="w-email" type="email" autocomplete="email" required value="' + esc(state.who.email) + '"></label>' +
       '<label class="f">Téléphone (WhatsApp)<input id="w-tel" type="tel" autocomplete="tel" placeholder="+221 …" value="' + esc(state.who.tel) + '"></label>' +
-      '</div></section>';
+      '</div><input id="hp" name="site_web" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0"><label class="consent"><input type="checkbox" id="w-consent"' + (state.consent ? ' checked' : '') + '><span>J’accepte qu’IAM enregistre ces informations et mon résultat pour m’orienter et me recontacter au sujet de mon inscription. Elles ne sont pas transmises à des tiers.</span></label></section>';
     var n = 0;
     Object.keys(t.domains).forEach(function(d){
       var qs = t.questions.map(function(q, i){ return [q, i]; }).filter(function(x){ return x[0][0] === d; });
@@ -257,9 +276,12 @@ fieldset.q legend{font-weight:600;padding:0;margin-bottom:8px;line-height:1.45}
     var t = TESTS[state.test], err = document.getElementById("err");
     var nom = document.getElementById("w-nom").value.trim(), email = document.getElementById("w-email").value.trim(), tel = document.getElementById("w-tel").value.trim();
     state.who = { nom: nom, email: email, tel: tel };
+    state.consent = document.getElementById("w-consent").checked;
+    state.hp = document.getElementById("hp").value;
     var missing = t.questions.length - Object.keys(state.answers).length;
     if (!nom || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { err.textContent = "Indiquez votre nom et une adresse e-mail valide, en haut du test."; err.hidden = false; document.getElementById("w-nom").focus(); return; }
     if (missing > 0) { err.textContent = "Il reste " + missing + " question" + (missing > 1 ? "s" : "") + " sans réponse. Répondez à toutes les questions, même si vous n’êtes pas sûr."; err.hidden = false; return; }
+    if (!state.consent) { err.textContent = "Cochez la case d’accord, sous vos coordonnées, pour qu’IAM puisse enregistrer votre résultat et vous recontacter."; err.hidden = false; document.getElementById("w-consent").focus(); return; }
     renderResult(score(state.test, state.answers));
   }
 
@@ -276,10 +298,10 @@ fieldset.q legend{font-weight:600;padding:0;margin-bottom:8px;line-height:1.45}
       '<div class="score"><span class="big">' + s.pct + ' %</span><span class="of">' + s.ok + ' bonnes réponses sur ' + s.total + '</span></div>' +
       '<p class="verdict ' + v[0] + '">' + esc(v[1]) + '</p><div class="bars">' + bars + '</div></section>' +
       '<section class="card" aria-labelledby="code-h"><h2 id="code-h">Envoyez votre code à IAM</h2>' +
-      '<p style="margin:0">Ce code contient votre résultat. Copiez-le et envoyez-le à IAM pour finaliser votre orientation et votre inscription.</p>' +
+      '<p class="saved" id="saved" aria-live="polite" hidden></p><p style="margin:0">Ce code contient votre résultat. Copiez-le et envoyez-le à IAM pour finaliser votre orientation et votre inscription.</p>' +
       '<div class="code" id="code">' + esc(code) + '</div>' +
       '<div class="submit-row"><a class="btn primary" href="https://wa.me/221767409962?text=' + encodeURIComponent("Bonjour IAM, voici mon code de test de positionnement : " + code) + '" target="_blank" rel="noopener">Envoyer par WhatsApp</a><button class="btn" type="button" id="copy">Copier le code</button><span class="hint" id="copied" aria-live="polite"></span></div>' +
-      '<ol class="steps"><li>Envoyez le code par WhatsApp au <strong>+221 76 740 99 62</strong> ou par e-mail à <strong>info@groupeiam.com</strong>.</li><li>IAM vous confirme votre parcours sous 48 h ouvrées.</li><li>Vous réglez votre inscription par Orange Money, Wave ou sur place à IAM.</li></ol></section>' +
+      '<ol class="steps"><li>Envoyez le code par WhatsApp au <strong>+221 76 740 99 62</strong> ou par e-mail à <strong>info@groupeiam.com</strong>.</li><li>IAM vous confirme votre parcours sous 48 h ouvrées.</li><li>IAM vous transmet par WhatsApp les modalités de paiement : Orange Money, Wave ou sur place.</li></ol></section>' +
       '<p class="hint">Les bonnes réponses ne sont pas affichées : elles seront travaillées pendant le parcours.</p>';
     document.getElementById("copy").addEventListener("click", function(){
       var msg = document.getElementById("copied");
@@ -287,6 +309,12 @@ fieldset.q legend{font-weight:600;padding:0;margin-bottom:8px;line-height:1.45}
         navigator.clipboard.writeText(code).then(function(){ msg.textContent = "Code copié."; }, selectCode);
       } catch (e) { selectCode(); }
       function selectCode(){ var r = document.createRange(); r.selectNodeContents(document.getElementById("code")); var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r); msg.textContent = "Code sélectionné : copiez-le avec votre appareil."; }
+    });
+    enregistrer(code, state.hp).then(function(ok){
+      if (!ok) return;
+      var el = document.getElementById("saved");
+      el.textContent = "Votre résultat est enregistré : IAM vous recontacte sous 48 h ouvrées. Pour aller plus vite, écrivez-lui sur WhatsApp.";
+      el.hidden = false;
     });
     window.scrollTo(0, 0);
   }
