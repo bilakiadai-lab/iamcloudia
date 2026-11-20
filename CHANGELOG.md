@@ -4,6 +4,8 @@ Les changements de chaque version du site, du plus récent au plus ancien. Forma
 
 ## [Non publié]
 
+## [1.3.0] - 2026-11-20
+
 ### Ajouté
 - Enregistrement automatique des tests de positionnement et des demandes de tarif groupe dans un fichier Google Sheets, via un script Apps Script (`integration/`). Activé dès que l’adresse du script est renseignée dans `INSCRIPTIONS_URL`.
 - Case de consentement sur le test de positionnement.
