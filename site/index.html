@@ -525,6 +525,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #C4
 
 </div>
 <script>
+try { var src = new URLSearchParams(location.search).get("src"); if (src) sessionStorage.setItem("src", src.replace(/[^A-Za-z0-9_-]/g, "").slice(0, 40)); } catch (e) {}
+</script>
+<script>
 (function(){
 /* Dates et horaires des séances : à compléter dès confirmation, par numéro de semaine.
    Exemple : 1: "Lundi 14 décembre · 18 h – 20 h". Sans valeur, la fiche affiche la mention provisoire. */

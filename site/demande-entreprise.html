@@ -163,6 +163,7 @@ td.r{text-align:right}
       <label class="f"><span>Précisions sur votre projet</span><textarea id="msg" name="message" placeholder="Profils concernés, objectifs, contraintes de calendrier…"></textarea></label>
     </section>
 
+    <input id="hp" name="site_web" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
     <label class="consent"><input type="checkbox" id="consent" required><span>J’accepte qu’IAM utilise ces informations pour me recontacter au sujet de cette demande. Elles ne sont pas transmises à des tiers.</span></label>
     <div class="row"><p class="err" id="err" role="alert" hidden></p><button class="btn primary" type="submit">Préparer ma demande</button></div>
   </form>
@@ -177,6 +178,22 @@ td.r{text-align:right}
 (function(){
   var IAM_WHATSAPP = "221767409962"; /* numéro IAM au format international sans + ni espaces, ex. 221770000000 */
   var IAM_EMAIL = "info@groupeiam.com";
+
+  /* Enregistrement automatique dans le fichier de réception (voir integration/README.md).
+     Adresse de l'application Apps Script ; vide = désactivé, le code reste à envoyer à la main. */
+  var INSCRIPTIONS_URL = "";
+  function source(){
+    var s = "";
+    try { s = new URLSearchParams(location.search).get("src") || ""; if (s) sessionStorage.setItem("src", s); else s = sessionStorage.getItem("src") || ""; } catch (e) {}
+    return String(s).replace(/[^A-Za-z0-9_-]/g, "").slice(0, 40);
+  }
+  source();
+  function enregistrer(code, hp){
+    if (!INSCRIPTIONS_URL || hp || !window.fetch) return Promise.resolve(false);
+    return fetch(INSCRIPTIONS_URL, { method: "POST", mode: "no-cors", keepalive: true, headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({ code: code, src: source(), page: location.pathname.split("/").pop() || "index.html" }) })
+      .then(function(){ return true; }, function(){ return false; });
+  }
   var PRICES = { cloud: 410000, ai: 460000, pack: 770000 };
   var NAMES = { cloud: "Cloud Foundations", ai: "AI Foundations", pack: "Pack Excellence" };
   var FORMATS = { inter: "Dans une promotion IAM", intra: "Promotion dédiée", conseil: "À discuter" };
@@ -214,6 +231,9 @@ td.r{text-align:right}
       n: c, fmt: format, lieu: lieux, per: v("periode"), fin: v("finance"), msg: v("msg"), est: total(c), at: new Date().toISOString() };
     var body = b64url(JSON.stringify(d)), code = "IAMENT1." + body + "." + fnv(body);
     renderSummary(d, code);
+    enregistrer(code, $("hp") ? $("hp").value : "").then(function(ok){
+      if (ok && $("done")) $("done").textContent = "Votre demande est enregistrée : IAM vous envoie une proposition sous 48 h ouvrées. Vous pouvez aussi lui écrire sur WhatsApp.";
+    });
   });
 
   function renderSummary(d, code){
@@ -225,7 +245,7 @@ td.r{text-align:right}
       "\nFormat : " + FORMATS[d.fmt] + " · Démarrage : " + d.per + "\nCode : " + code;
     var wa = IAM_WHATSAPP ? '<a class="btn primary" href="https://wa.me/' + IAM_WHATSAPP + '?text=' + encodeURIComponent(text) + '" target="_blank" rel="noopener">Envoyer par WhatsApp</a>' : "";
     $("app").innerHTML =
-      '<p class="done">Votre demande est prête. Il reste une étape : l’envoyer à IAM.</p>' +
+      '<p class="done" id="done">Votre demande est prête. Il reste une étape : l’envoyer à IAM.</p>' +
       '<section class="card" aria-labelledby="h-rec"><h2 id="h-rec">Récapitulatif · ' + esc(d.ent) + '</h2>' +
       '<table><tbody>' + lines + '<tr class="total"><td>Total au tarif public</td><td></td><td class="r">' + esc(fmt(d.est)) + '</td></tr></tbody></table>' +
       '<p class="hint">Le tarif groupe dégressif, appliqué à partir de 5 salariés, figure dans la proposition d’IAM.</p>' +
