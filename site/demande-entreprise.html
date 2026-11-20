@@ -181,7 +181,7 @@ td.r{text-align:right}
 
   /* Enregistrement automatique dans le fichier de réception (voir integration/README.md).
      Adresse de l'application Apps Script ; vide = désactivé, le code reste à envoyer à la main. */
-  var INSCRIPTIONS_URL = "";
+  var INSCRIPTIONS_URL = "https://script.google.com/macros/s/AKfycbxzyiSGVp6BkUzmr-epLn5Nlb1ZBoV-2_p87cVJ4ZnxInstXTw30NoKh_Lz4HSlpAE/exec";
   function source(){
     var s = "";
     try { s = new URLSearchParams(location.search).get("src") || ""; if (s) sessionStorage.setItem("src", s); else s = sessionStorage.getItem("src") || ""; } catch (e) {}
